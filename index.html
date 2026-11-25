@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عاداتي · تتبّع العادات</title>
+<meta name="description" content="تتبّع عاداتك اليومية: سلاسل الالتزام، خريطة حرارية، ونسب الإنجاز. بياناتك على جهازك.">
+<meta name="theme-color" content="#06121d">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header class="hero"><img class="logo" src="logo.svg" alt=""><div><h1>عاداتي</h1><p>عادة صغيرة كل يوم، والسلسلة هي اللي بتشدّك</p></div></header>
+<div class="stats">
+<div class="stat"><b id="s-today">0/0</b><span>خلّصتها النهارده</span></div>
+<div class="stat"><b id="s-best">0</b><span>أطول سلسلة حالية</span></div>
+<div class="stat"><b id="s-week">–</b><span>التزام آخر ٧ أيام</span></div>
+</div>
+<nav class="tabs" aria-label="الأقسام"><button id="tab-today" class="on">النهارده</button><button id="tab-stats">الإحصائيات</button><button id="tab-manage">العادات</button></nav>
+
+<section id="pane-today" class="pane">
+<div id="today-list"></div>
+<div id="today-empty" class="card" hidden><p>لسه مفيش عادات. ابدأ بعادة واحدة بس، حاجة صغيرة تقدر تعملها كل يوم.</p><button class="primary" id="go-add">أضف أول عادة</button></div>
+<p class="hint" id="today-hint"></p>
+</section>
+
+<section id="pane-stats" class="pane" hidden>
+<div class="card"><h2 style="margin-top:0;font-size:1.1rem">آخر ١٦ أسبوع</h2><div class="heat" id="heat" role="img" aria-label="خريطة حرارية للالتزام"></div>
+<div class="legend"><span>أقل</span><i class="cell" data-l="0"></i><i class="cell" data-l="1"></i><i class="cell" data-l="2"></i><i class="cell" data-l="3"></i><i class="cell" data-l="4"></i><span>أكتر</span></div>
+<p class="hint" id="heat-note"></p></div>
+<div class="card" id="per-habit"></div>
+</section>
+
+<section id="pane-manage" class="pane" hidden>
+<div class="card">
+<h2 style="margin-top:0;font-size:1.1rem" id="form-title">عادة جديدة</h2>
+<input type="text" id="f-name" placeholder="مثلاً: قراءة ٢٠ دقيقة" maxlength="60" aria-label="اسم العادة">
+<p class="hint" style="margin-bottom:4px">أيقونة</p><div class="icons" id="icons"></div>
+<p class="hint" style="margin-bottom:4px">أنهي أيام؟</p><div class="days" id="days"></div>
+<div class="row" style="margin-top:14px"><button class="primary" id="save">حفظ العادة</button><button id="cancel" hidden>إلغاء التعديل</button><span class="hint" id="form-msg"></span></div>
+</div>
+<div class="card"><h2 style="margin-top:0;font-size:1.1rem">عاداتك</h2><div id="manage-list"></div></div>
+<div class="card"><h2 style="margin-top:0;font-size:1.1rem">نسخة احتياطية</h2>
+<p class="hint">البيانات محفوظة في المتصفح ده بس. صدّر نسخة عشان تنقلها أو تحتفظ بيها.</p>
+<div class="row"><button id="export">تصدير JSON</button><input type="file" id="file" accept=".json,application/json" style="max-width:240px"><button id="import">استيراد (يستبدل الحالي)</button><span class="hint" id="bk-msg"></span></div></div>
+</section>
+<footer>البيانات بتتحفظ في متصفحك. <a href="https://github.com/abdalhadymahmoud9-crypto/habit-tracker">الكود على GitHub</a></footer>
+</main>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
